@@ -1,0 +1,19 @@
+<div id="id01"></div>
+<img src="https://www.ovh.es/files/featured_images/kubblog_0.jpg">
+<br>
+<img src="https://i0.wp.com/www.docker.com/blog/wp-content/uploads/2019/09/Kubernetes-NodePort-Service-2.png">
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "http://172.17.0.3:30235";
+
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var resp = JSON.parse(this.responseText);
+        document.getElementById("id01").innerHTML = "<h2>La hora es " + resp.time + "y el hostname es " + resp.hostname + "</h2>";
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+</script>
