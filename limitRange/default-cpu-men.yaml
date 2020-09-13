@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Namespace
 metadata:
- name: dev
- labels:
-   name: dev
+  name: dev
+  labels:
+    name: dev
 ---
 apiVersion: v1
 kind: LimitRange
@@ -19,3 +19,16 @@ spec:
       memory: 256Mi
       cpu: 0.5
     type: Container
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podtest3
+  namespace: dev
+  labels:
+    app: backend
+    env: dev
+spec:
+  containers:
+  - name: cont1
+    image: nginx:alpine
